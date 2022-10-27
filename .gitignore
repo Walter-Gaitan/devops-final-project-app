@@ -105,3 +105,6 @@ dist
 
 # Webpack config
 webpack.config.js
+
+# env dev
+.env-dev
