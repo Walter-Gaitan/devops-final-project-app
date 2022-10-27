@@ -18,7 +18,7 @@ spec:
         app: webapp
     spec:
       containers:
-      - image: 596027898727.dkr.ecr.us-east-1.amazonaws.com/mern-stack:latest
+      - image: 596027898727.dkr.ecr.us-east-1.amazonaws.com/mern-stack:v1
         name: webapp
         imagePullPolicy: Always
         resources: {}
