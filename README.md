@@ -62,9 +62,17 @@ docker push <Repository URI>/mern-stack:v1
 ```
 ### Deploy the application
 
+1. Create an EKS cluster using the repository [Terraform EKS Cluster](https://github.com/Walter-Gaitan/devops-final-project-terraform)
+
+2. Run manifest.yaml to deploy the application using the following command:
+
 ```bash
+kubectl create -f manifest.yml
 ```
 
-### 
+You can verify that the application is running by navigating to the public IP address of the load balancer in your web browser. It will look like this
+![img.png](images/img.png)
+
+
 
 ## Github Actions
