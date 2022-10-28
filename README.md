@@ -14,7 +14,9 @@ This is a simple application that uses a MongoDB Atlas Cluster to store data. Th
 ## Usage
 
 
+For this project, the ECR will be created manually so it is independent of the infraestructure built with terraform.
 To create the ECR repository, run the following command:
+> Note: Make sure to have an IAM user setup with the correct permissions to create and push to ECR in AWS CLI.
 
 ```bash
 aws ecr create-repository --repository-name rest-api --image-scanning-configuration scanOnPush=true --image-tag-mutability IMMUTABLE --region us-east-1
@@ -37,7 +39,6 @@ docker run -p 80:80 mern-image
 After the image is running, navigate to http://localhost:80 in your web browser to verify that the application is running.
 
 3. Create an ECR repository using the following command:
-> Note: Make sure to have an IAM user setup with the correct permissions to push to ECR in AWS CLI.
 
 ```bash 
 aws ecr create-repository --repository-name mern-stack --image-scanning-configuration scanOnPush=true --image-tag-mutability IMMUTABLE --region us-east-1
@@ -64,13 +65,28 @@ docker push <Repository URI>/mern-stack:v1
 
 1. Create an EKS cluster using the repository [Terraform EKS Cluster](https://github.com/Walter-Gaitan/devops-final-project-terraform)
 
-2. Run manifest.yaml to deploy the application using the following command:
+2. Connect to the EKS cluster using the following command:
 
 ```bash
-kubectl create -f manifest.yml
+rm ~/.kube/config
+aws eks --region us-east-1 update-kubeconfig --name mern-stack-<terraform.workspace>-eks
 ```
 
-You can verify that the application is running by navigating to the public IP address of the load balancer in your web browser. It will look like this
+3. Run manifest.yaml to deploy the application using the following command:
+
+```bash
+kubectl create -f manifest.yaml
+```
+
+You can verify that the application is running by navigating to the public IP address of the load balancer in your web browser using the following command:
+
+```bash
+kubectl get svc
+kubectl get pods
+kubectl get nodes
+```
+
+It will look like this
 ![img.png](images/img.png)
 
 

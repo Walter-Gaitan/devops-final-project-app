@@ -3,19 +3,19 @@ kind: Deployment
 metadata:
   creationTimestamp: null
   labels:
-    app: webapp
-  name: webapp
+    app: mern-stack
+  name: mern-stack
 spec:
-  replicas: 5
+  replicas: 1
   selector:
     matchLabels:
-      app: webapp
+      app: mern-stack
   strategy: {}
   template:
     metadata:
       creationTimestamp: null
       labels:
-        app: webapp
+        app: mern-stack
     spec:
       containers:
       - image: 596027898727.dkr.ecr.us-east-1.amazonaws.com/mern-stack:v1
@@ -31,13 +31,13 @@ status: {}
 apiVersion: v1
 kind: Service
 metadata:
-  name: webapp
+  name: mern-stack
   labels:
-    run: webapp
+    run: mern-stack
 spec:
   ports:
   - port: 80
     protocol: TCP
   selector:
-    app: webapp
+    app: mern-stack
   type: LoadBalancer
