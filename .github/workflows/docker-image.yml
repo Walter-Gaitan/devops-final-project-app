@@ -12,8 +12,16 @@ env:
   # github.repository as <account>/<repo>
   IMAGE_NAME: ${{ github.repository }}
 
-
 jobs:
+  create_env_file_job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 'Create env file'
+        run: |
+          cd api
+          touch .env
+          echo MONGO_CONNECTION_STRING=${{ secrets.MONGO_CONNECTION_STRING }} >> .env
+          cat .env
   docker:
     runs-on: ubuntu-latest
     steps:
