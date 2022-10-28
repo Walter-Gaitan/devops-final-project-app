@@ -17,8 +17,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: 'Create env file'
+        working-directory: ./api
         run: |
-          cd api
           touch .env
           echo MONGO_CONNECTION_STRING=${{ secrets.MONGO_CONNECTION_STRING }} >> .env
           cat .env
