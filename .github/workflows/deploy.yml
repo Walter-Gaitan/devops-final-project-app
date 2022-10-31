@@ -1,4 +1,5 @@
 name: mern-stack
+description: Build and Push the image to ECR
 
 on:
   push:
@@ -6,9 +7,11 @@ on:
   workflow_dispatch:
     branches: [ main ]
 
+
+runs:
 jobs:
   deploy:
-    name: Deploy
+    name: Deploy to Amazon ECR
     runs-on: ubuntu-latest
 
     steps:
