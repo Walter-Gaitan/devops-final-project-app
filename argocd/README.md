@@ -8,3 +8,4 @@ Make sure to change the ```repoURL``` to your own repo.
 kubectl apply -f application.yaml
 ```
 4. Navigate to the ArgoCD UI. You will see that the application is deployed. ![ArgoCD UI](../images/argo.png)
+5. Navigate to the application URL. You will see the application running. ![Application](../images/app.png)
