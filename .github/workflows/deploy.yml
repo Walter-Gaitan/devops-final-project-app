@@ -7,8 +7,6 @@ on:
   workflow_dispatch:
     branches: [ main ]
 
-
-runs:
 jobs:
   deploy:
     name: Deploy to Amazon ECR
