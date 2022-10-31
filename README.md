@@ -1,6 +1,7 @@
 # Application for EKS cluster
 
 Prerequisites
+
 - Docker
 - ArgoCD
 - AWS CLI
@@ -13,11 +14,12 @@ This is a simple application that uses a MongoDB Atlas Cluster to store data. Th
 
 ## Usage
 
-
 For this project, the ECR will be created manually, so it is independent of the infrastructure built with terraform.
+
 > You can check the terraform code [here](https://github.com/Walter-Gaitan/devops-final-project-terraform)
 
 To create the ECR repository, run the following command:
+
 > Note: Make sure to have an IAM user setup with the correct permissions to create and push to ECR in AWS CLI.
 
 ```bash
@@ -27,14 +29,14 @@ aws ecr create-repository --repository-name rest-api --image-scanning-configurat
 ### Build and push the Docker image
 
 1. Build the Docker image using the following command:
-> **Note**: You can pull the image from Docker Hub using the following command:
-> ```docker pull waltergaitan/mern-stack```
+   > **Note**: You can pull the image from Docker Hub using the following command:
+   > `docker pull waltergaitan/mern-stack`
+
+````bash
 
 ```bash
-
-```bash
-docker build -t mern-image .  
-```
+docker build -t mern-image .
+````
 
 2. Test the image locally using the following command:
 
@@ -46,7 +48,7 @@ After the image is running, navigate to http://localhost:80 in your web browser 
 
 3. Create an ECR repository using the following command:
 
-```bash 
+```bash
 aws ecr create-repository --repository-name <repository-name> --image-scanning-configuration scanOnPush=true --image-tag-mutability IMMUTABLE --region us-east-1
 ```
 
@@ -67,6 +69,7 @@ docker tag mern-stack:latest <Repository URI>/mern-stack:v1
 ```bash
 docker push <Repository URI>/mern-stack:v1
 ```
+
 ### Deploy the application
 
 1. Create an EKS cluster using the repository [Terraform EKS Cluster](https://github.com/Walter-Gaitan/devops-final-project-terraform)
@@ -78,7 +81,7 @@ rm ~/.kube/config
 aws eks --region us-east-1 update-kubeconfig --name mern-stack-<terraform.workspace>-eks
 ```
 
-3. Run the files inside the ```k8s``` folder to deploy the application using the following command:
+3. Run the files inside the `k8s` folder to deploy the application using the following command:
 
 ```bash
 kubectl apply -f k8s
