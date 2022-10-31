@@ -11,4 +11,3 @@ For this deploy to work you need to set the following secrets in the repository 
 
 The tag of the image is the commit sha. It will look like this:
 ![sha](../../images/sha.png)
-

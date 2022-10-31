@@ -14,7 +14,9 @@ This is a simple application that uses a MongoDB Atlas Cluster to store data. Th
 ## Usage
 
 
-For this project, the ECR will be created manually so it is independent of the infraestructure built with terraform.
+For this project, the ECR will be created manually, so it is independent of the infrastructure built with terraform.
+> You can check the terraform code [here](https://github.com/Walter-Gaitan/devops-final-project-terraform)
+
 To create the ECR repository, run the following command:
 > Note: Make sure to have an IAM user setup with the correct permissions to create and push to ECR in AWS CLI.
 
@@ -41,7 +43,7 @@ After the image is running, navigate to http://localhost:80 in your web browser 
 3. Create an ECR repository using the following command:
 
 ```bash 
-aws ecr create-repository --repository-name mern-stack --image-scanning-configuration scanOnPush=true --image-tag-mutability IMMUTABLE --region us-east-1
+aws ecr create-repository --repository-name <repository-name> --image-scanning-configuration scanOnPush=true --image-tag-mutability IMMUTABLE --region us-east-1
 ```
 
 4. Authenticate Docker to your Amazon ECR registry using the following command:
@@ -88,7 +90,3 @@ kubectl get nodes
 
 It will look like this
 ![img.png](images/img.png)
-
-
-
-## Github Actions
