@@ -94,8 +94,3 @@ kubectl get nodes
 
 It will look like this
 ![img.png](images/img.png)
-
-### Configure ArgoCD
-
-Follow the instructions to configure ArgoCD [here](https://argo-cd.readthedocs.io/en/stable/getting_started/#1-install-argo-cd)
-    
