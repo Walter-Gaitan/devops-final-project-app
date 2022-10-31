@@ -1,5 +1,4 @@
 name: mern-stack
-description: Build and Push the image to ECR
 
 on:
   push:
