@@ -27,6 +27,10 @@ aws ecr create-repository --repository-name rest-api --image-scanning-configurat
 ### Build and push the Docker image
 
 1. Build the Docker image using the following command:
+> **Note**: You can pull the image from Docker Hub using the following command:
+> ```docker pull waltergaitan/mern-stack```
+
+```bash
 
 ```bash
 docker build -t mern-image .  
@@ -49,7 +53,7 @@ aws ecr create-repository --repository-name <repository-name> --image-scanning-c
 4. Authenticate Docker to your Amazon ECR registry using the following command:
 
 ```bash
-aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin aws_account_id.dkr.ecr.us-east-1.amazonaws.com
+aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin <aws_account_id>.dkr.ecr.us-east-1.amazonaws.com
 ```
 
 5. Tag your image using the following command:
@@ -74,10 +78,10 @@ rm ~/.kube/config
 aws eks --region us-east-1 update-kubeconfig --name mern-stack-<terraform.workspace>-eks
 ```
 
-3. Run manifest.yaml to deploy the application using the following command:
+3. Run the files inside the ```k8s``` folder to deploy the application using the following command:
 
 ```bash
-kubectl create -f manifest.yaml
+kubectl apply -f k8s
 ```
 
 You can verify that the application is running by navigating to the public IP address of the load balancer in your web browser using the following command:
@@ -90,3 +94,8 @@ kubectl get nodes
 
 It will look like this
 ![img.png](images/img.png)
+
+### Configure ArgoCD
+
+Follow the instructions to configure ArgoCD [here](https://argo-cd.readthedocs.io/en/stable/getting_started/#1-install-argo-cd)
+    

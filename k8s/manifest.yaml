@@ -18,7 +18,7 @@ spec:
         app: mern-stack
     spec:
       containers:
-      - image: 596027898727.dkr.ecr.us-east-1.amazonaws.com/mern-stack:v1
+      - image: waltergsteven/mern-stack
         name: mern-stack
         imagePullPolicy: Always
         resources: {}
