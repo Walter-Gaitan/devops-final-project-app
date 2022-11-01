@@ -15,7 +15,7 @@ This is a simple application that uses a MongoDB Atlas Cluster to store data. Th
 
 
 For this project, the ECR will be created manually, so it is independent of the infrastructure built with terraform.
-> You can check the terraform code [here](https://github.com/Walter-Gaitan/devops-final-project-terraform)
+> You can check the infrastructure repository [here](https://github.com/Walter-Gaitan/devops-final-project-terraform)
 
 To create the ECR repository, run the following command:
 > Note: Make sure to have an IAM user setup with the correct permissions to create and push to ECR in AWS CLI.
