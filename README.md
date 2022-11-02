@@ -14,10 +14,10 @@ The solution is a simple web application that allows users to create, read, upda
 
 
 For this project, the ECR will be created manually, so it is independent of the infrastructure built with terraform.
-> You can check the infrastructure repository [here](https://github.com/Walter-Gaitan/devops-final-project-terraform)
+You can check the infrastructure repository [here](https://github.com/Walter-Gaitan/devops-final-project-terraform)
 
 To create the ECR repository, run the following command:
-> Note: Make sure to have an IAM user setup with the correct permissions to create and push to ECR in AWS CLI.
+> **Note**: Make sure to have an IAM user setup with the correct permissions to create and push to ECR in AWS CLI.
 
 ```bash
 aws ecr create-repository --repository-name rest-api --image-scanning-configuration scanOnPush=true --image-tag-mutability IMMUTABLE --region us-east-1
@@ -28,8 +28,6 @@ aws ecr create-repository --repository-name rest-api --image-scanning-configurat
 1. Build the Docker image using the following command:
 > **Note**: You can pull the image from Docker Hub using the following command:
 > ```docker pull waltergaitan/mern-stack```
-
-```bash
 
 ```bash
 docker build -t mern-image .  
