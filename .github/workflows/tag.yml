@@ -4,7 +4,7 @@ name: tag
 on:
   push:
     # https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows#running-your-workflow-only-when-a-push-of-specific-tags-occurs
-    tags: [ "v*.*.*" ]
+    tags: [ "v*.*" ]
 
 env:
   AWS_REGION: us-east-1
