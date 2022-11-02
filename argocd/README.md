@@ -1,17 +1,25 @@
 # Configure ArgoCD
 
-1. Install ArgoCD. You can follow the instructions to install it [here](https://argoproj.github.io/argo-cd/getting_started/).
-2. Create the application configuration file. This is already created, it is called ```application.yaml```.
-Make sure to change the ```repoURL``` to your own repo.
-3. Apply the configuration file using the following command in the root folder:
+1. Setup ArgoCD using the following command:
+
 ```bash
-kubectl apply -f argocd
+kubectl create namespace argocd
+
+kubectl apply \
+  --namespace argocd \
+  --filename https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
+  
+kubectl wait deploy argocd-server \
+  --timeout=180s \
+  --namespace argocd \
+  --for=condition=Available=True
+  
+kubectl patch svc argocd-server -n argocd -p '{"spec": {"type": "LoadBalancer"}}'
 ```
-4. Port forward the ArgoCD server using the following command:
-```bash
-kubectl port-forward svc/argocd-server -n argocd 8080:443
-```
-5. Navigate to http://localhost:8080 in your web browser and login using the following credentials:
+
+You can now connect to ArgoCD using the data displayed in the terminal when using the command ```kubectl get svc argocd-server -n argocd```
+
+5. Navigate to the  in your web browser and login using the following credentials:
 ```bash
 username: admin
 password: $(kubectl get secret argocd-initial-admin-secret -n argocd -o jsonpath="{.data.password}" | base64 -d)

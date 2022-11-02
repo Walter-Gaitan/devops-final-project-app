@@ -64,7 +64,7 @@ docker tag mern-stack:latest <Repository URI>/<repository-name>:v1
 ```bash
 docker push <Repository URI>/mern-stack:v1
 ```
-### Deploy the application
+### Connect to the EKS cluster
 
 1. Create an EKS cluster using the repository [Terraform EKS Cluster](https://github.com/Walter-Gaitan/devops-final-project-terraform)
 
@@ -74,20 +74,3 @@ docker push <Repository URI>/mern-stack:v1
 rm ~/.kube/config
 aws eks --region us-east-1 update-kubeconfig --name mern-stack-<terraform.workspace>-eks
 ```
-
-3. Run the files inside the ```k8s``` folder to deploy the application using the following command:
-
-```bash
-kubectl apply -f k8s
-```
-
-You can verify that the application is running by navigating to the public IP address of the load balancer in your web browser using the following command:
-
-```bash
-kubectl get svc
-kubectl get pods
-kubectl get nodes
-```
-
-It will look like this
-![img.png](images/img.png)
