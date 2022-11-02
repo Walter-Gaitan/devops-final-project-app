@@ -51,7 +51,7 @@ jobs:
           ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
         # https://docs.github.com/en/actions/learn-github-actions/environment-variables#default-environment-variables
         run: |
-          cd vote
+          cd mern-stack
           docker image build \
             --build-arg NODE_ENV=prod \
             --build-arg VERSION=${{ github.ref_name }} \
