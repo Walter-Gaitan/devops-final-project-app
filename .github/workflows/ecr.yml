@@ -41,7 +41,6 @@ jobs:
       - name: Create repository
         # https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ecr/create-repository.html
         run: |
-          aws ecr create-repository \
             --repository-name ${{ env.ECR_REPOSITORY }} \
             --query 'repository.repositoryUri' \
             --output text \
