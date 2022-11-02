@@ -8,8 +8,7 @@ Prerequisites
 - MongoDB Atlas Cluster
 
 ## Description
-
-This is a simple application that uses a MongoDB Atlas Cluster to store data. The application is deployed on an EKS cluster using ArgoCD.
+The solution is a simple web application that allows users to create, read, update and delete (CRUD) a TODO list. The application is composed of a front-end, a back-end and a MongoDB database. The front-end is a React application that allows users to interact with the application. The back-end is a Node.js application that handles the requests from the front-end and communicates with the database. The database is a MongoDB database that stores the information.
 
 ## Usage
 
@@ -59,7 +58,7 @@ aws ecr get-login-password --region us-east-1 | docker login --username AWS --pa
 5. Tag your image using the following command:
 
 ```bash
-docker tag mern-stack:latest <Repository URI>/mern-stack:v1
+docker tag mern-stack:latest <Repository URI>/<repository-name>:v1
 ```
 
 6. Push the image to your Amazon ECR repository using the following command:
