@@ -11,7 +11,7 @@ on:
       - main
 
 env:
-  AWS_REGION: eu-east-1
+  AWS_REGION: us-east-1
   ECR_REPOSITORY: mern-stack-${{ github.ref_name }}
   SHORT_SHA: $(echo ${{ github.sha }} | cut -c 1-8)
 
