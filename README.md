@@ -13,7 +13,7 @@ The solution is a simple web application that allows users to create, read, upda
 ## Usage
 
 
-For this project, the ECR will be created manually, so it is independent of the infrastructure built with terraform.
+For this project, the ECR will be created manually, so it is independent of the infrastructure built with Terraform.
 You can check the infrastructure repository [here](https://github.com/Walter-Gaitan/devops-final-project-terraform)
 
 To create the ECR repository, run the following command:
@@ -74,3 +74,6 @@ docker push <Repository URI>/mern-stack:v1
 rm ~/.kube/config
 aws eks --region us-east-1 update-kubeconfig --name mern-stack-<terraform.workspace>-eks
 ```
+
+Next, you can find further information about using the k8s manifests and ArgoCD to deploy the application inside their respective folders.
+I recommend you to check the ArgoCD folder first, since it is the easiest way to deploy the application.
