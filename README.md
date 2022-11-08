@@ -10,6 +10,8 @@ Prerequisites
 ## Description
 The solution is a simple web application that allows users to create, read, update and delete (CRUD) a TODO list. The application is composed of a front-end, a back-end and a MongoDB database. The front-end is a React application that allows users to interact with the application. The back-end is a Node.js application that handles the requests from the front-end and communicates with the database. The database is a MongoDB database that stores the information.
 
+![argo](images/argocd-diagram.png)
+
 ## Usage
 
 
