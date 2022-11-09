@@ -51,6 +51,13 @@ kubectl get svc -n mern-stack
 To delete the application, run the following command:
 
 ```bash
+# delete kubernetes element
 kubectl delete -f argocd/application-prod.yaml
 kubectl delete -f k8s -n mern-stack
+
+# delete the namespace
+kubectl delete ns argocd
+kubectl delete ns mern-stack
 ```
+
+Once you do that, you can proceed to delete the infrastructure. Please refer to the [Terraform infrastructure](https://github.com/Walter-Gaitan/devops-final-project-terraform) to do so.
