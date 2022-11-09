@@ -17,9 +17,15 @@ kubectl wait deploy argocd-server \
 kubectl patch svc argocd-server -n argocd -p '{"spec": {"type": "LoadBalancer"}}'
 ```
 
-After you wait for around 2 minutes for the Load Balancer to start, you can then connect to ArgoCD using the data displayed in the terminal when using the command ```kubectl get svc argocd-server -n argocd```
+After you wait for around 2 minutes for the Load Balancer to start, you can then connect to ArgoCD using the data displayed in the terminal when using the command 
+```
+kubectl get svc argocd-server -n argocd
+```
 
-2. Navigate to the URL showed in your web browser and login using ```username: admin``` and for the password get it using the following command on the terminal and paste the result in the ArgoCD CLI
+![loadbalancer](../images/loadbalancer.png)
+
+2. Navigate to the URL showed in your web browser and login using 
+```username: admin``` and for the password get it using the following command on the terminal and paste the result in the ArgoCD CLI
 ```kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d; echo```
 
 3. In the terminal, run the following command to deploy the ArgoCD application:

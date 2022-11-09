@@ -3,8 +3,8 @@ services:
   
   ui:
    build:
-      context: ui
-      dockerfile: ui/Dockerfile.dev
+      context: ./ui
+      dockerfile: Dockerfile.dev
    ports:
     -  3000:3000
    container_name: mern-ui
@@ -20,8 +20,8 @@ services:
 
   api:
    build:
-      context: api
-      dockerfile: api/Dockerfile.dev
+      context: ./api
+      dockerfile: Dockerfile.dev
    ports:
      - 3080:3080
    container_name: mern-api
